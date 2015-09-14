@@ -1,0 +1,15 @@
+# OS or Editor folders
+*~
+._*
+.cache
+.project
+.rdsTempFiles
+.settings
+.tmproj
+*.esproj
+*.sublime-project
+*.sublime-workspace
+*_notes/
+.DS_Store
+Thumbs.db
+/settings.xml

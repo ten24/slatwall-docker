@@ -1,5 +1,5 @@
 web:
-  image: slatwall/slatwall-lucee
+  build: .
   ports:
    - "80:8080"
   links:

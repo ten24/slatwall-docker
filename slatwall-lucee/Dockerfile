@@ -21,7 +21,8 @@ VOLUME ["/var/www/custom", "/var/www/integrationServices"]
 COPY lucee-server.xml /opt/lucee/server/lucee-server/context/lucee-server.xml
 COPY lucee-web.xml.cfm /opt/lucee/web/lucee-web.xml.cfm
 
-EXPOSE 8080
+# Expose Ports
+EXPOSE ["8080"]
 
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]

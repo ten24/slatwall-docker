@@ -15,9 +15,9 @@ EXPOSE 8080 3306
 
 # Set some defaults so that the container just runs
 ENV MYSQL_HOST localhost
+ENV MYSQL_DATABASE Slatwall
 ENV MYSQL_ROOT_PASSWORD MakeThisSecret!
-ENV MYSQL_DATABASE : Slatwall
-ENV LUCEE_PASSWORD: AlsoChangeThis!
+ENV LUCEE_PASSWORD AlsoChangeThis!
 
 # Copy over the entrypoint to install the mysql server
 COPY entrypoint.sh /entrypoint.sh

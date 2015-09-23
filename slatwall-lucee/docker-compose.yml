@@ -6,6 +6,7 @@ web:
    - slatwalldb
   environment:
    MYSQL_ROOT_PASSWORD : MakeThisSecret!
+   MYSQL_HOST : slatwalldb
    LUCEE_PASSWORD: AlsoChangeThis!
 slatwalldb:
   image: mysql

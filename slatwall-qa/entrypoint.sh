@@ -8,7 +8,10 @@ wget -nv https://github.com/ten24/slatwall/archive/${SLATWALL_VERSION_OR_BRANCH}
 	cp -a /root/slatwall-${SLATWALL_VERSION_OR_BRANCH}/. /var/www && \
 	rm -rf /root/slatwall.zip && \
 	rm -rf /root/slatwall-$SLATWALL_VERSION
-	
+
+# Copy over the configFramework.cfm file
+cp /root/configFramework.cfm /var/www/custom/config/configFramework.cfm
+
 	
 # === END: COPIED FROM SLATWALL-LUCEE DOCKER FILE ===
 

@@ -21,6 +21,9 @@ EXPOSE 8080 3306
 COPY lucee-server.xml /opt/lucee/server/lucee-server/context/lucee-server.xml
 COPY lucee-web.xml.cfm /opt/lucee/web/lucee-web.xml.cfm
 
+# Move the configFramework.cfm file to the root so that it can be moved into Slatwall after install
+COPY configFramework.cfm /root/configFramework.cfm
+
 # Copy over the entrypoint to install the mysql server
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]

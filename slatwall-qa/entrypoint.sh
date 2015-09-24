@@ -2,12 +2,16 @@
 
 # === COPIED FROM SLATWALL-LUCEE DOCKER FILE ===
 
+# Clear out the www folder
+rm -rf /var/www/*
+rm -rf /var/lib/mysql
+
 # Download Slatwall, unzip and remove Downloaded zip
 wget -nv https://github.com/ten24/slatwall/archive/${SLATWALL_VERSION_OR_BRANCH}.zip -O /root/slatwall.zip && \
 	unzip /root/slatwall.zip -d /root && \
 	cp -a /root/slatwall-${SLATWALL_VERSION_OR_BRANCH}/. /var/www && \
 	rm -rf /root/slatwall.zip && \
-	rm -rf /root/slatwall-$SLATWALL_VERSION
+	rm -rf /root/slatwall-${SLATWALL_VERSION_OR_BRANCH}
 
 # Copy over the configFramework.cfm file
 cp /root/configFramework.cfm /var/www/custom/config/configFramework.cfm

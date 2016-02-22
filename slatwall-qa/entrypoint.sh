@@ -4,6 +4,8 @@
 
 # Clear out the www folder
 rm -rf /var/www/*
+
+# Clear out the mysql folder
 rm -rf /var/lib/mysql
 
 # Download Slatwall, unzip and remove Downloaded zip
@@ -16,7 +18,6 @@ wget -nv https://github.com/ten24/slatwall/archive/${SLATWALL_VERSION_OR_BRANCH}
 # Copy over the configFramework.cfm file
 cp /root/configFramework.cfm /var/www/custom/config/configFramework.cfm
 
-	
 # === END: COPIED FROM SLATWALL-LUCEE DOCKER FILE ===
 
 # === COPIED FROM SLATWALL-LUCEE IMAGE ===

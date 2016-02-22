@@ -1,4 +1,4 @@
-FROM slatwall/slatwall-lucee:latest
+FROM slatwall/slatwall:latest
 MAINTAINER Greg Moser, greg.moser@ten24web.com
 
 # Install Supervisor

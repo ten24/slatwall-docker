@@ -1,12 +1,13 @@
----
-webqa:
-  build: .
-  ports:
-   - "80:8080"
-  environment:
-   MYSQL_HOST : localhost
-   MYSQL_ROOT_PASSWORD : QaPa33W0RD
-   MYSQL_DATABASE : Slatwall
-   LUCEE_PASSWORD: QaPa33W0RD
-   SLATWALL_VERSION_OR_BRANCH: master
-...
+version: '2'
+services:
+  slatwallqa:
+    build: .
+    ports:
+     - "80:8080"
+     - "3306:3306"
+    environment:
+      SLATWALL_VERSION_OR_BRANCH: master
+      LUCEE_PASSWORD: QaPa33W0RD
+      MYSQL_HOST : localhost
+      MYSQL_ROOT_PASSWORD : QaPa33W0RD
+      MYSQL_DATABASE : Slatwall

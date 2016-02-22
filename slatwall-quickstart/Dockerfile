@@ -1,23 +1,24 @@
-FROM slatwall/slatwall:latest
+FROM lucee/lucee-tomcat:4.5.1
 MAINTAINER Greg Moser, greg.moser@ten24web.com
 
 # Install Supervisor
-RUN apt-get update && apt-get install -y supervisor
+RUN apt-get update && apt-get install -y supervisor uuid-runtime
 
 # Because we are running mysql and lucee we copy over a subervisord config
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# Setup Mysql Volumes
-VOLUME ["/var/lib/mysql"]
-
-# Expose Mysql Ports
-EXPOSE 8080 3306
-
-# Set some defaults so that the container just runs
+# Set the Slatwall download URL & defaults so that the container just runs
+ENV LUCEE_PASSWORD MakeThisLuceePWSecret!
 ENV MYSQL_HOST localhost
+ENV MYSQL_ROOT_PASSWORD MakeThisMySQLPWSecret!
 ENV MYSQL_DATABASE Slatwall
-ENV MYSQL_ROOT_PASSWORD MakeThisSecret!
-ENV LUCEE_PASSWORD AlsoChangeThis!
+
+# Expose Mysql & Lucee Ports
+EXPOSE 3306 8080
+
+# Copy over the Lucee Configs
+COPY lucee-server.xml /opt/lucee/server/lucee-server/context/lucee-server.xml
+COPY lucee-web.xml.cfm /opt/lucee/web/lucee-web.xml.cfm
 
 # Copy over the entrypoint to install the mysql server
 COPY entrypoint.sh /entrypoint.sh

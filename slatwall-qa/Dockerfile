@@ -15,7 +15,7 @@ ENV MYSQL_ROOT_PASSWORD QaPa33W0RD
 ENV LUCEE_PASSWORD QaPa33W0RD
 
 # Expose Mysql & Lucee Ports
-EXPOSE 8080
+EXPOSE 3306 8080
 
 # Copy over the Lucee Configs
 COPY lucee-server.xml /opt/lucee/server/lucee-server/context/lucee-server.xml

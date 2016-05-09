@@ -35,6 +35,7 @@ debconf-set-selections <<< "mysql-server mysql-server/root_password password $MY
 debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $MYSQL_ROOT_PASSWORD"
 
 # Install MySQL
+apt-get update
 apt-get -y install mysql-server
 
 echo "CREATE DATABASE IF NOT EXISTS \`$MYSQL_DATABASE\` ;" > /mysql_init.sql

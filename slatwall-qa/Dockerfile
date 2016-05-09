@@ -1,4 +1,5 @@
-FROM lucee/lucee-tomcat:4.5.1
+# Slatwall Quickstart
+FROM lucee/lucee4:latest
 MAINTAINER Greg Moser, greg.moser@ten24web.com
 
 # Install Supervisor
@@ -15,7 +16,7 @@ ENV MYSQL_ROOT_PASSWORD QaPa33W0RD
 ENV LUCEE_PASSWORD QaPa33W0RD
 
 # Expose Mysql & Lucee Ports
-EXPOSE 3306 8080
+EXPOSE 3306 8888
 
 # Copy over the Lucee Configs
 COPY lucee-server.xml /opt/lucee/server/lucee-server/context/lucee-server.xml

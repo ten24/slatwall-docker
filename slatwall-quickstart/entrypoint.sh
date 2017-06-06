@@ -3,9 +3,6 @@
 # Clear out the www folder
 rm -rf /var/www/*
 
-# Clear out the mysql folder
-rm -rf /var/lib/mysql
-
 # Download Slatwall, unzip and remove Downloaded zip
 wget -nv https://github.com/ten24/slatwall/archive/master.zip -O /root/slatwall.zip && \
 	unzip /root/slatwall.zip -d /root && \
@@ -27,14 +24,6 @@ sed -i "s/\${MYSQL_DATABASE}/${MYSQL_DATABASE}/g" /opt/lucee/server/lucee-server
 sed -i "s/\${WEB-HSPW}/$LUCEEWEBPASS/g" /opt/lucee/web/lucee-web.xml.cfm
 sed -i "s/\${WEB-HSPW-SALT}/$LUCEEWEBSALT/g" /opt/lucee/web/lucee-web.xml.cfm
 
-# Setup MySQL Password
-debconf-set-selections <<< "mysql-server mysql-server/root_password password $MYSQL_ROOT_PASSWORD"
-debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $MYSQL_ROOT_PASSWORD"
-
-# Install MySQL
-apt-get update
-apt-get -y install mysql-server
-
-echo "CREATE DATABASE IF NOT EXISTS \`$MYSQL_DATABASE\` ;" > /mysql_init.sql
+catalina.sh run
 
 exec "$@"

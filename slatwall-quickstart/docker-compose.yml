@@ -1,19 +1,7 @@
 version: '2.1'
 services:
-  mysql:
-    image: mysql:5.7.12
-    environment:
-      MYSQL_ROOT_PASSWORD : MakeThisMySQLPWSecret!
-      MYSQL_DATABASE : Slatwall
-    ports:
-     - "51025:3306"
   slatwallquickstart:
     build: .
-    environment:
-      LUCEE_PASSWORD: MakeThisLuceePWSecret!
-      MYSQL_ROOT_PASSWORD : MakeThisMySQLPWSecret!
-      MYSQL_DATABASE : Slatwall
     ports:
       - "51024:8888"
-    links:
-      - mysql
+      - "51025:3306"

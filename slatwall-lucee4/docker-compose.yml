@@ -11,7 +11,7 @@ services:
       - MYSQL_HOST=slatwalldb
       - MYSQL_PORT=3306
       - MYSQL_DATABASE=slatwall
-      - LUCEE_PASSWORD=NOT_SECURE_CHANGE
+      - LUCEE_PASSWORD=slatwall
       - LUCEE_JAVA_OPTS=-Xms1024m -Xmx1024m
   slatwalldb:
     image: mysql:5.7
@@ -21,4 +21,4 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: "true"
       MYSQL_DATABASE: slatwall
     volumes:
-      - ~/Documents/slatwall_data:/var/lib/mysql
+      - ~/Documents/slatwall-docker/data:/var/lib/mysql

@@ -1,0 +1,24 @@
+version: '3'
+services:
+  slatwallweb:
+    image: 'ten24/slatwall-lucee4'
+    ports:
+     - "1024:8888"
+    links:
+     - slatwalldb
+    environment:
+      - MYSQL_ROOT_PASSWORD:''
+      - MYSQL_HOST=slatwalldb
+      - MYSQL_PORT=3306
+      - MYSQL_DATABASE=slatwall
+      - LUCEE_PASSWORD=NOT_SECURE_CHANGE
+      - LUCEE_JAVA_OPTS=-Xms1024m -Xmx1024m
+  slatwalldb:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ''
+      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+      MYSQL_DATABASE: slatwall
+    volumes:
+      - ~/Documents/slatwall_data:/var/lib/mysql
